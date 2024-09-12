@@ -53,13 +53,11 @@ export function say(...words) {
 // Write your line count function here
 export async function meaningfulLineCount(filename) {
   try {
-    // Read file
+    // Read file and split
     const data = await fs.readFile(filename, 'utf8');
-    
-    // Split content
     const lines = data.split('\n');
     
-    // Count lines that are not empty, not made up of whitespace, and do not start with '#'
+    // Filter out empty lines and invalid lines
     const validLines = lines.filter(line => line.trim() !== '' && !line.trim().startsWith('#'));
     
     return validLines.length;
@@ -114,7 +112,7 @@ export class Quaternion {
     if (this.a !== 0 || (this.b === 0 && this.c === 0 && this.d === 0)) {
       terms.push(this.a.toString());
     }
-
+    
     if (this.b !== 0) {
       terms.push((this.b === 1 ? '' : this.b === -1 ? '-' : this.b) + 'i');
     }

@@ -107,11 +107,11 @@ function Quaternion.__eq(q1, q2)
   return q1.a == q2.a and q1.b == q2.b and q1.c == q2.c and q1.d == q2.d
 end
 
--- String representation
+-- String
 function Quaternion.__tostring(q)
   local parts = {}
 
-  -- Handle the scalar part (a)
+  -- Handle part (a)
   if q.a ~= 0 or (q.b == 0 and q.c == 0 and q.d == 0) then
     table.insert(parts, tostring(q.a))
   end
@@ -137,7 +137,7 @@ function Quaternion.__tostring(q)
   -- Combine and add +
   local result = table.concat(parts, "+"):gsub("%+%-", "-")
 
-  -- Remove leading '+' if present
+  -- Remove leading '+' if it's there
   result = result:gsub("^%+", "")
 
   return result

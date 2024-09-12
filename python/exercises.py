@@ -36,16 +36,15 @@ def say(word=None):
         say.words.append(word)
         return say  # Return the function itself to allow chaining
     else:
-        #return the collected words
+        # Return the collected words
         result = " ".join(say.words)
         say.words = []  # Reset
         return result
 
 # Write your line count function here
 def meaningful_line_count(filename):
-    # Open the file in read mode
+    # Open file in read mode
     with open(filename, 'r') as file:
-        # Read all lines
         lines = file.readlines()
 
     valid_lines = 0
@@ -54,7 +53,7 @@ def meaningful_line_count(filename):
         # Strip leading/trailing whitespaces
         stripped_line = line.strip()
 
-        # Check if the line is not empty, not made up of whitespaces, and does not start with '#'
+        # Check if the line is valid
         if stripped_line and not stripped_line.startswith('#'):
             valid_lines += 1
 
