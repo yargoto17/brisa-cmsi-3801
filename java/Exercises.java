@@ -90,16 +90,16 @@ record Quaternion(double a, double b, double c, double d) {
             return "0";
         }
 
-        StringBuilder result = new StringBuilder();
+        StringBuilder quaternionRep = new StringBuilder();
 
         if (a != 0) {
-            result.append(a);
+            quaternionRep.append(a);
         }
-        appendComponent(result, b, "i");
-        appendComponent(result, c, "j");
-        appendComponent(result, d, "k");
+        appendComponent(quaternionRep, b, "i");
+        appendComponent(quaternionRep, c, "j");
+        appendComponent(quaternionRep, d, "k");
 
-        return result.toString();
+        return quaternionRep.toString();
     }
 
     private void appendComponent(StringBuilder result, double component, String symbol) {
